@@ -9,6 +9,12 @@ export function Comment({ content, onDeleteComment }) {
   function handleDeleteComment() {
     onDeleteComment(content);
   }
+
+  function handleLikeComment() {
+    setLikeCount((state) => {
+      return state + 1;
+    });
+  }
   
   return (
     <div className={styles.comment}>
@@ -29,9 +35,7 @@ export function Comment({ content, onDeleteComment }) {
         <footer>
           <button onClick={handleLikeComment}>
             <ThumbsUp />
-            Aplaudir <span>{() => setLikeCount(likeCount, currentCount => {
-              return currentCount + 1;
-            })}</span>
+            Aplaudir <span>{likeCount}</span>
           </button>
         </footer>
       </div>
